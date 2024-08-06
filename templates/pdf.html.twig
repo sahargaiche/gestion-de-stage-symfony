@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-dark text-white text-center">
+                <h1 class="h3 mb-0">Candidature Confirmée</h1>
+            </div>
+            <div class="card-body">
+                <p class="lead">Merci pour votre candidature de stage. Elle a été reçue avec succès.</p>
+                <p>Nous espérons que vous vivrez une expérience enrichissante avec nous !</p>
+                <hr>
+                <h2 class="h5">Détails du Candidat</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Prénom :</strong> {{ candidate.firstName }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Nom :</strong> {{ candidate.lastName }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Email :</strong> {{ candidate.email }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Date de Soumission :</strong> {{ "now"|date("d/m/Y") }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>CV :</strong> 
+                            <a href="/uploads/cvs/{{ candidate.cv }}" class="btn btn-link" download>
+                                Télécharger le CV
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <a href="http://127.0.0.1:8000/" class="btn btn-outline-dark">Retourner à l'accueil</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

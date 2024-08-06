@@ -1,0 +1,60 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title 'Bienvenue' %}
+
+{% block main %}
+<div style="padding: 20px; background-color: #f7f7f7;">
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="flex: 1; padding: 10px; background-color: #fff; margin-right: 10px; border-radius: 5px;">
+            <h3>Nombre des Candidates</h3>
+            <p></p>
+            <h2>{{ candidateCount }}</h2>
+            <p></p>
+        </div>
+        <div style="flex: 1; padding: 10px; background-color: #fff; margin-right: 10px; border-radius: 5px;">
+            <h3>Nombre des sujets</h3>
+            <p></p>
+            <h2>{{ subjectCount }}</h2>
+            <p></p>
+        </div>
+        <div style="flex: 1; padding: 10px; background-color: #fff; border-radius: 5px;">
+            <h3>Nombre des sujets valides</h3>
+            <p></p>
+            <h2>{{ validSubjectCount }}</h2>
+            <p></p>
+        </div>
+    </div>
+    
+    <div style="flex: 1; padding: 10px; background-color: #fff; border-radius: 5px;">
+        <h3>Statistiques</h3>
+        <div>
+            <canvas id="statsChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('statsChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar', // Changed to 'bar' for better visual distinction
+        data: {
+            labels: ['Candidates', 'Sujets', 'Sujets Valides'],
+            datasets: [{
+                label: 'Count',
+                data: [{{ candidateCount }}, {{ subjectCount }}, {{ validSubjectCount }}],
+                backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384'], // Different colors for each section
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}
+

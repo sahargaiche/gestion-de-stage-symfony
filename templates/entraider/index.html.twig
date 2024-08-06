@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EntraiderController!{% endblock %}
+
+{% block body %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f8f9fa;
+    }
+
+    .hero-area {
+        background: url('path_to_hero_image.jpg') no-repeat center center/cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .example-wrapper { 
+        margin: 1em auto; 
+        max-width: 800px; 
+        width: 95%; 
+        font: 18px/1.5 sans-serif; 
+    }
+
+    .example-wrapper code { 
+        background: #F5F5F5; 
+        padding: 2px 6px; 
+    }
+</style>
+
+<div class="hero-area">
+    <div class="hero-content">
+        <h1>Hello {{ controller_name }}! ✅</h1>
+        <p>This friendly message is coming from:</p>
+        <ul>
+            <li>Your controller at <code>/home/sahar/app-symfony/src/Controller/EntraiderController.php</code></li>
+            <li>Your template at <code>/home/sahar/app-symfony/templates/entraider/index.html.twig</code></li>
+        </ul>
+    </div>
+</div>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code>/home/sahar/app-symfony/src/Controller/EntraiderController.php</code></li>
+        <li>Your template at <code>/home/sahar/app-symfony/templates/entraider/index.html.twig</code></li>
+    </ul>
+</div>
+{% endblock %}

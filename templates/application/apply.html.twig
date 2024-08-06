@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Apply for a Stage{% endblock %}
+
+{% block body %}
+<!-- Add Bootstrap CSS CDN -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="contact-container container">
+    <div class="left-side">
+        <h1>Apply for a Stage</h1>
+        <p>Let’s discuss on something <span class="cool">cool</span> together</p>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> khalil@example.com</p>
+            <p><i class="fas fa-phone"></i> 3456654567</p>
+            <p><i class="fas fa-map-marker-alt"></i> hammamlif</p>
+        </div>
+    </div>
+    <div class="right-side">
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_row(form.firstName, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.lastName, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.skills, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.cv, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.stage, {'attr': {'class': 'form-select'}}) }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+<!-- Add Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+body {
+    background-color: #f8f9fa; 
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-container {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.left-side {
+    flex: 1;
+    padding: 40px;
+    background: #ff4757;
+    color: white;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-side h1 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.left-side p {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.left-side .cool {
+    color: #ffffff; 
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 10px;
+}
+
+.right-side {
+    flex: 1.5;
+    padding: 40px;
+    background: #fff;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control, .form-select {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.btn-primary {
+    padding: 10px 20px; 
+    background: #ff4757;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; 
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background: #e63946; 
+}
+</style>
+{% endblock %}

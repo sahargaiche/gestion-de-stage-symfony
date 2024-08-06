@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Booking Confirmation{% endblock %}
+
+{% block body %}
+<div class="confirmation-container">
+    <div class="confirmation-card">
+        <div class="confirmation-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.08 0L13 6.084l-1.08-1.08L7.5 9.439 5.933 7.873 4.854 8.957l2.116 2.072z"/>
+            </svg>
+        </div>
+        <h1>Thank you! Your internship application has been confirmed.</h1>
+        <p>We wish you an enriching experience!</p>
+        <a href="{{ path('app_user_pdf', { 'id': id }) }}" class="btn-download">
+            Download your response as PDF
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.confirmation-card {
+    text-align: center;
+    background: #121212;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    color: #ffffff;
+}
+
+.confirmation-icon {
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.btn-download {
+    display: inline-block;
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-download:hover {
+    background-color: #357ABD;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<div class="login-container">
+    <div class="login-form">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="inputUsername">Username</label>
+            <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+            <label for="inputPassword">Password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+            <input type="hidden" name="_csrf_token"
+                value="{{ csrf_token('authenticate') }}"
+            >
+
+            <div class="remember-me">
+                <input type="checkbox" id="remember_me" name="_remember_me" />
+                <label for="remember_me">Remember me</label>
+            </div>
+
+            <button class="btn btn-lg btn-primary" type="submit">
+                Sign in
+            </button>
+        </form>
+    </div>
+</div>
+
+<style>
+body {
+    background-color: #f8f9fa; 
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background: #fff; 
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-form {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    text-align: center; 
+}
+
+h1 {
+    color: #ff4757;
+    margin-bottom: 20px;
+}
+
+label {
+    color: #ff4757; 
+}
+
+.form-control {
+    background: #f8f9fa; 
+    border: 1px solid #ddd;
+    color: #333;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: #ff4757; 
+    box-shadow: none;
+}
+
+.btn-primary {
+    background: #ff4757; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px; 
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background: #e63946; 
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #ff4757; 
+}
+
+.remember-me input {
+    margin-right: 10px;
+}
+
+
+</style>
+{% endblock %}

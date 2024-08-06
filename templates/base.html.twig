@@ -7,11 +7,15 @@
         {% block stylesheets %}
         {% endblock %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+        
     </head>
     <body>
+
         {% block body %}{% endblock %}
     </body>
+ {% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/acc.js') }}"></script>
+{% endblock %}
+
 </html>
